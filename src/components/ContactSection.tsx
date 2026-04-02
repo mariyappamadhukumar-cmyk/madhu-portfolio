@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, Github, Linkedin, Mail, Heart, ArrowUpRight } from "lucide-react";
+import { Send, Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 import ScrollFloat from "./ScrollFloat";
 import ScrollReveal from "./ScrollReveal";
 
@@ -113,14 +113,6 @@ const ContactSection = () => {
             </div>
           </ScrollReveal>
         </div>
-
-        {/* Footer */}
-        <ScrollReveal variant="blurIn" delay={0.3} className="mt-24 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <p className="flex items-center gap-1.5">
-            Built with <Heart className="w-3 h-3 text-destructive" /> by Madhukumar
-          </p>
-          <p>© {new Date().getFullYear()} All rights reserved.</p>
-        </ScrollReveal>
       </div>
     </section>
   );
