@@ -34,9 +34,16 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between max-w-6xl">
-        <a href="#home" className="font-display font-bold text-lg tracking-tight">
-          <span className="neon-text">MK</span>
-          <span className="text-muted-foreground text-xs ml-1 font-mono">.dev</span>
+        <a href="#home" className="flex items-center gap-2">
+          <img 
+            src="/profile.png"
+            alt="Madhu Kumar"
+            className="w-10 h-10 rounded-full object-cover border border-primary/30"
+          />
+          <span className="font-display font-bold text-sm tracking-tight hidden sm:inline">
+            <span className="neon-text">MK</span>
+            <span className="text-muted-foreground text-xs ml-1 font-mono">.dev</span>
+          </span>
         </a>
 
         <div className="hidden md:flex items-center gap-1 bg-secondary/50 rounded-full px-1 py-1 backdrop-blur-sm border border-border/50">
