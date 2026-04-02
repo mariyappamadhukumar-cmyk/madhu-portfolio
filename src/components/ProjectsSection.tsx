@@ -1,6 +1,6 @@
 import { motion, useInView, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useState, useCallback } from "react";
-import { Github, ArrowUpRight, X, CheckCircle2, Zap, Sparkles, ChevronDown } from "lucide-react";
+import { Github, ArrowUpRight, X, CheckCircle2, Zap, Sparkles, ChevronDown, ArrowLeft } from "lucide-react";
 import ScrollFloat from "./ScrollFloat";
 
 import projectRacing from "@/assets/project-racing.jpg";
@@ -475,9 +475,10 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 p-2 rounded-full bg-background/60 backdrop-blur-sm text-foreground hover:bg-background/80 transition-colors"
+          className="absolute top-3 left-3 md:top-3 md:right-3 p-2.5 rounded-lg bg-background/70 backdrop-blur-sm text-foreground hover:bg-background/90 transition-all duration-300 flex items-center gap-2 md:gap-0 text-sm md:text-xs font-medium md:font-normal"
         >
-          <X className="w-4 h-4" />
+          <ArrowLeft className="w-4 h-4 md:hidden" /> Back
+          <X className="w-4 h-4 hidden md:block" />
         </button>
         <div className="absolute bottom-4 left-5 right-5">
           <div className="flex items-center gap-2 mb-2">
@@ -567,16 +568,24 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
           </div>
         </div>
 
-        <div className="flex items-center gap-4 pt-4 border-t border-border">
-          <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5">
-            <Github className="w-4 h-4" /> View Source
-          </a>
-          <a href="#" className="text-sm flex items-center gap-1.5 transition-colors" style={{ color: "hsl(var(--muted-foreground))" }}
-            onMouseEnter={e => (e.currentTarget.style.color = "hsl(var(--neon-blue))")}
-            onMouseLeave={e => (e.currentTarget.style.color = "hsl(var(--muted-foreground))")}
+        <div className="flex items-center justify-between pt-4 border-t border-border flex-wrap gap-3">
+          <div className="flex items-center gap-4">
+            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5">
+              <Github className="w-4 h-4" /> View Source
+            </a>
+            <a href="#" className="text-sm flex items-center gap-1.5 transition-colors" style={{ color: "hsl(var(--muted-foreground))" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "hsl(var(--neon-blue))")}
+              onMouseLeave={e => (e.currentTarget.style.color = "hsl(var(--muted-foreground))")}
+            >
+              <ArrowUpRight className="w-4 h-4" /> Live Demo
+            </a>
+          </div>
+          <button
+            onClick={onClose}
+            className="px-4 py-2 text-sm font-medium flex items-center gap-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all duration-300 md:ml-auto"
           >
-            <ArrowUpRight className="w-4 h-4" /> Live Demo
-          </a>
+            <ArrowLeft className="w-4 h-4" /> Back
+          </button>
         </div>
       </div>
     </motion.div>
